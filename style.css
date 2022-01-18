@@ -1,5 +1,5 @@
 body {
-    margin: 50px;
+    margin: 100px 50px 100px 50px;
     text-align: center;
     background-image: url('Triangle Background.png');
     background-repeat: no-repeat;
@@ -46,7 +46,7 @@ button:active {
     height: 100px;
     line-height: 100px;
     margin: 20px auto auto auto;
-    vertical-align: middle;
+    vertical-align: center;
     border: 1px solid darkgray;
     border-radius: 3px;
     font-size: 30px;
