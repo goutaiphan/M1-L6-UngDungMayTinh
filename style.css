@@ -1,0 +1,53 @@
+body {
+    margin: 50px;
+    text-align: center;
+    background-image: url('Triangle Background.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+h1 {
+    margin: 0 0 50px 0;
+    display: block;
+    font-family: "Times New Roman", serif;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+#number1, #number2 {
+    width: 150px;
+    height: 25px;
+    margin: 0 5px 10px 0;
+    text-align: center;
+    border: 1px solid darkgray;
+    border-radius: 3px;
+}
+
+button {
+    width: 60px;
+    height: 25px;
+    margin: 0 5px 10px 0;
+    text-align: center;
+    border: 1px solid darkgray;
+    border-radius: 3px;
+}
+
+button:hover {
+    background: lightgray;
+}
+
+button:active {
+    transform: translateY(2px);
+}
+
+#result {
+    width: 400px;
+    height: 100px;
+    line-height: 100px;
+    margin: 20px auto auto auto;
+    vertical-align: middle;
+    border: 1px solid darkgray;
+    border-radius: 3px;
+    font-size: 30px;
+}

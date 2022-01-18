@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Ứng dụng máy tính</title>
+    <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+<h1>Ứng dụng máy tính</h1>
+
+<div>
+    <input type="number" id="number1">
+    <input type="number" id="number2"><br><br>
+</div>
+
+<div>
+    <button value="+" onclick="calculate(this.value)">Cộng</button>
+    <button value="-" onclick="calculate(this.value)">Trừ</button>
+    <button value="*" onclick="calculate(this.value)">Nhân</button>
+    <button value="/" onclick="calculate(this.value)">Chia</button>
+</div>
+
+<div id="result"></div>
+
+<script>
+    function calculate(cal) {
+        let number1 = document.getElementById("number1").value;
+        let number2 = document.getElementById("number2").value;
+        document.getElementById("result").innerText
+            = eval(number1 + cal + number2);
+    }
+</script>
+</body>
+</html>
