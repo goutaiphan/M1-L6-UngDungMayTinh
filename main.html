@@ -10,8 +10,8 @@
 <body>
 <h1>Ứng dụng máy tính</h1>
 
-<input type="number" id="number1">
-<input type="number" id="number2"><br><br>
+<input type="text" id="number1">
+<input type="text" id="number2"><br><br>
 
 <button value="+" onclick="calculate(this.value)">Cộng</button>
 <button value="-" onclick="calculate(this.value)">Trừ</button>
@@ -21,15 +21,19 @@
 <div id="result"></div>
 
 <script>
-    function calculate(cal) {
-        let number1 = document.getElementById("number1").value;
-        let number2 = document.getElementById("number2").value;
-        let pattern = /^[-+]?[0-9]$/;
-        if (number1.match(pattern) && number2.match(pattern)) {
-            document.getElementById("result").innerText
-                = eval((number1 + cal + number2).replace("--", "+"));
+      function calculate(cal) {
+        let number1 = document.getElementById("number1");
+        let number2 = document.getElementById("number2");
+        number1.setCustomValidity("Vui lòng nhập số thực.");
+        number2.setCustomValidity("Vui lòng nhập số thực.");
+        let regex = /^[-+]?[0-9]+([,.][0-9]+)?$/
+        if (!number1.value.match(regex)) {
+            number1.reportValidity();
+        } else if (!number2.value.match(regex)) {
+            number2.reportValidity();
         } else {
-            alert("Số liệu không hợp lệ.");
+            document.getElementById("result").innerText
+                = eval((number1.value + cal + number2.value).replace("--", "+"));
         }
     }
 </script>
