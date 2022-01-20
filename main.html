@@ -8,10 +8,10 @@
 </head>
 
 <body>
-<h1>Ứng dụng máy tính</h1>
+<div id="title">Ứng dụng máy tính</div>
 
 <input type="text" id="number1">
-<input type="text" id="number2"><br><br>
+<input type="text" id="number2"><br>
 
 <button value="+" onclick="calculate(this.value)">Cộng</button>
 <button value="-" onclick="calculate(this.value)">Trừ</button>
@@ -19,14 +19,15 @@
 <button value="/" onclick="calculate(this.value)">Chia</button>
 
 <div id="result"></div>
+</body>
 
 <script>
-      function calculate(cal) {
+    function calculate(cal) {
         let number1 = document.getElementById("number1");
         let number2 = document.getElementById("number2");
         number1.setCustomValidity("Vui lòng nhập số thực.");
         number2.setCustomValidity("Vui lòng nhập số thực.");
-        let regex = /^[-+]?[0-9]+([,.][0-9]+)?$/
+        let regex = /^[-+]?[0-9]+([.,][0-9]+)?$/;
         if (!number1.value.match(regex)) {
             number1.reportValidity();
         } else if (!number2.value.match(regex)) {
@@ -37,5 +38,4 @@
         }
     }
 </script>
-</body>
 </html>
