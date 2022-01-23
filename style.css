@@ -12,13 +12,13 @@ body {
     font-family: "Playfair Display", serif;
     transform:scale(1.05,1);
     font-size: 33px;
-    line-height: 130%;
+    line-height: 140%;
 }
 
 #group {
     width: 367px;
     height: 100px;
-    margin: auto auto 28px auto;
+    margin: auto auto 30px auto;
     border: 1px solid darkgray;
     border-radius: 3px;
 }
