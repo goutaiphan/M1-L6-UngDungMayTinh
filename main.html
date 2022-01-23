@@ -148,7 +148,14 @@
             .replaceAll('√\(', 'Math.sqrt(')
             .replace(/(\*)\1+/g, '*')
             .replace(/(\/)\1+/g, '/')
-            .replace(/(\.)\1+/g, '.');
+            .replace(/(\.)\1+/g, '.')
+            .replace(/\(/g, '*(')
+            .replace(/Math\.sqrt\*\(/g, 'Math.sqrt(')
+            .replace(/Math\.sqrt\(/g, '*Math.sqrt(');
+
+        if (formatValue[0] === '*') {
+            formatValue = formatValue.substr(1, formatValue.length);
+        }
 
         let reMinus = formatValue.match(/(-)\1+/g);
         if (reMinus !== null) {
