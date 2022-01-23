@@ -8,39 +8,145 @@
 </head>
 
 <body>
-<div id="title">Ứng dụng máy tính</div>
+<div id="titleArea">Ứng dụng máy tính</div>
 
-<input class="input">
-<input class="input"><br>
+<div id="group">
+    <input id="inputArea"><br>
+    <hr>
+    <div id="resultArea"></div>
+</div>
 
-<button value="+" onclick="calculate(this.value)">Cộng</button>
-<button value="-" onclick="calculate(this.value)">Trừ</button>
-<button value="*" onclick="calculate(this.value)">Nhân</button>
-<button value="/" onclick="calculate(this.value)">Chia</button>
-
-<div id="result"></div>
+<table id="tableArea"></table>
 </body>
+</html>
 
 <script>
-    function calculate(calculus) {
-        let inputs = document.getElementsByClassName("input");
-        let result = document.getElementById("result");
-        let regex = /^[-+]?[0-9]+([.,][0-9]+)?$/;
-        let error = 0;
+    let inputs = [['AC', 'C', '÷', 7, 8, 9],
+        ['(', ')', '×', 4, 5, 6],
+        ['%', '‰', '-', 1, 2, 3],
+        ['√', '^', '+', '.', 0, '=']];
 
-        for (i = 0; i < inputs.length; i++) {
-            if (!inputs[i].value.match(regex)) {
-                inputs[i].setCustomValidity("Vui lòng nhập số thực.");
-                inputs[i].reportValidity();
-                result.innerText = "";
-                error++;
+    let inputArea = document.getElementById('inputArea');
+    let resultArea = document.getElementById('resultArea');
+
+    let table = document.getElementById('tableArea');
+    let tableBody = document.createElement('tbody');
+    table.appendChild(tableBody);
+
+    for (let i = 0; i < inputs.length; i++) {
+        let tableRow = document.createElement('tr');
+        tableBody.appendChild(tableRow);
+
+        for (let j = 0; j < inputs[i].length; j++) {
+            let button = document.createElement('button');
+            button.innerHTML = inputs[i][j];
+            if (button.innerHTML.match(/[0-9]/)) {
+                button.className = 'buttonNumber';
+            } else {
+                button.className = 'buttonCalculus';
+            }
+
+            let tableCell = document.createElement('td');
+            tableCell.style.width = (1 / inputs.length) + '%';
+            tableCell.style.height = (1 / inputs[inputs.length]) + '%';
+            tableCell.appendChild(button);
+            tableRow.appendChild(tableCell);
+
+            switch (button.innerHTML) {
+                default:
+                    button.onclick = function type() {
+                        inputArea.value += String(inputs[i][j])
+                            .replace('×', '*')
+                            .replace('÷', '/')
+                            .replace('√', '√(')
+                            .replace('!', '!(')
+                            .replace('^', '^(');
+                        resultArea.innerHTML = '';
+                    }
+                    break;
+                case 'C':
+                    button.onclick = clear;
+                    break;
+                case 'AC':
+                    button.onclick = allClear;
+                    break;
+                case '=':
+                    button.onclick = result;
+                    break;
+            }
+        }
+    }
+
+    function clear() {
+        inputArea.value = inputArea.value
+            .substr(0, inputArea.value.length - 1);
+        resultArea.innerHTML = '';
+    }
+
+    function allClear() {
+        inputArea.value = '';
+        resultArea.innerHTML = '';
+    }
+
+    function result() {
+        let formatValue = format(inputArea.value);
+        // inputArea.value = formatValue;
+        // resultArea.innerHTML = eval(formatValue);
+
+        if (formatValue === '') {
+            inputArea.setCustomValidity("Biểu thức không hợp lệ.");
+            inputArea.reportValidity();
+        } else if (formatValue.includes('^')) {
+            let caretCount = (formatValue.match(/\^/g)).length;
+            let powers = formatValue.split('^');
+            if (caretCount >= 2) {
+                inputArea.setCustomValidity("Biểu thức chỉ thực hiện 1 phép lũy thừa.");
+                inputArea.reportValidity();
+            } else {
+                try {
+                    resultArea.innerHTML = String(Math.pow(eval(powers[0]), eval(powers[1])));
+                } catch (e) {
+                    inputArea.setCustomValidity("Biểu thức không hợp lệ.");
+                    inputArea.reportValidity();
+                }
+            }
+        } else {
+            try {
+                inputArea.value = formatValue.replaceAll('Math.sqrt(', '√\(');
+                resultArea.innerHTML = eval(formatValue);
+            } catch (e) {
+                inputArea.setCustomValidity("Biểu thức không hợp lệ.");
+                inputArea.reportValidity();
+            }
+        }
+    }
+
+    function format(inputValue) {
+        let formatValue = inputValue
+            .replaceAll('%', '/100')
+            .replaceAll('‰', '/1000')
+            .replaceAll('√\(', 'Math.sqrt(')
+            .replace(/(\*)\1+/g, '*')
+            .replace(/(\/)\1+/g, '/')
+            .replace(/\//g, '/');
+
+        let reMinus = formatValue.match(/(-)\1+/g);
+        if (reMinus !== null) {
+            for (let k = 0; k < reMinus.length; k++) {
+                if ((reMinus[k].length % 2) === 0) {
+                    formatValue = formatValue.replace(reMinus[k], '+');
+                } else {
+                    formatValue = formatValue.replace(reMinus[k], '-');
+                }
             }
         }
 
-        if (error === 0) {
-            result.innerText = eval((inputs[0].value + calculus + inputs[1].value)
-                .replace("--", "+"));
+        let rePlus = formatValue.match(/(\+)\1+/g);
+        if (rePlus !== null) {
+            for (let k = 0; k < rePlus.length; k++) {
+                formatValue = formatValue.replace(rePlus[k], '+');
+            }
         }
+        return formatValue;
     }
 </script>
-</html>
