@@ -27,6 +27,7 @@
         ['√', '^', '+', '.', 0, '=']];
 
     let inputArea = document.getElementById('inputArea');
+    inputArea.oninput = filterNumber;
     let resultArea = document.getElementById('resultArea');
 
     let table = document.getElementById('tableArea');
@@ -47,22 +48,12 @@
             }
 
             let tableCell = document.createElement('td');
-            tableCell.style.width = (1 / inputs.length) + '%';
-            tableCell.style.height = (1 / inputs[inputs.length]) + '%';
             tableCell.appendChild(button);
             tableRow.appendChild(tableCell);
 
             switch (button.innerHTML) {
                 default:
-                    button.onclick = function type() {
-                        inputArea.value += String(inputs[i][j])
-                            .replace('×', '*')
-                            .replace('÷', '/')
-                            .replace('√', '√(')
-                            .replace('!', '!(')
-                            .replace('^', '^(');
-                        resultArea.innerHTML = '';
-                    }
+                    button.onclick = type;
                     break;
                 case 'C':
                     button.onclick = clear;
@@ -75,6 +66,35 @@
                     break;
             }
         }
+    }
+
+    window.onkeydown = function (event) {
+        switch (event.key) {
+            case 'Enter':
+                result();
+                break;
+            case 'Delete':
+                allClear();
+                break;
+            case 'Clear':
+                allClear();
+                break;
+        }
+    }
+
+    function filterNumber() {
+        this.value = this.value.replace(/[^0-9.,+\-*\/%()^]/g, "")
+            .replace(',', '.');
+    }
+
+    function type() {
+        inputArea.value += String(this.innerHTML)
+            .replace('×', '*')
+            .replace('÷', '/')
+            .replace('√', '√(')
+            .replace('!', '!(')
+            .replace('^', '^(');
+        resultArea.innerHTML = '';
     }
 
     function clear() {
@@ -128,7 +148,7 @@
             .replaceAll('√\(', 'Math.sqrt(')
             .replace(/(\*)\1+/g, '*')
             .replace(/(\/)\1+/g, '/')
-            .replace(/\//g, '/');
+            .replace(/(\.)\1+/g, '.');
 
         let reMinus = formatValue.match(/(-)\1+/g);
         if (reMinus !== null) {

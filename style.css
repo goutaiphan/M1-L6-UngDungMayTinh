@@ -9,8 +9,10 @@ body {
 
 #titleArea {
     margin: 0 0 50px 0;
-    font-family: "Roboto Slab", serif;
+    font-family: "Playfair Display", serif;
+    transform:scale(1.05,1);
     font-size: 33px;
+    line-height: 130%;
 }
 
 #group {
@@ -51,8 +53,8 @@ hr {
 }
 
 button {
-    width: 100%;
-    height: 100%;
+    width: 55px;
+    height:30px;
     text-align: center;
     border: 1px solid darkgray;
     border-radius: 3px;
@@ -77,5 +79,4 @@ table {
     height: 160px;
     border-spacing: 5px;
     border-collapse: separate;
-
 }
