@@ -27,7 +27,11 @@
         ['√', '^', '+', '.', 0, '=']];
 
     let inputArea = document.getElementById('inputArea');
-    inputArea.oninput = filterNumber;
+    inputArea.oninput = function () {
+        inputArea.value = inputArea.value
+            .replace(/[^0-9.,+\-*\/%()^]/g, '')
+            .replace(',', '.');
+    }
     let resultArea = document.getElementById('resultArea');
 
     let table = document.getElementById('tableArea');
@@ -80,11 +84,6 @@
                 allClear();
                 break;
         }
-    }
-
-    function filterNumber() {
-        this.value = this.value.replace(/[^0-9.,+\-*\/%()^]/g, "")
-            .replace(',', '.');
     }
 
     function type() {
@@ -160,7 +159,7 @@
         let reMinus = formatValue.match(/(-)\1+/g);
         if (reMinus !== null) {
             for (let k = 0; k < reMinus.length; k++) {
-                if ((reMinus[k].length % 2) === 0) {
+                if (reMinus[k].length % 2 === 0) {
                     formatValue = formatValue.replace(reMinus[k], '+');
                 } else {
                     formatValue = formatValue.replace(reMinus[k], '-');
