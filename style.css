@@ -10,15 +10,15 @@ body {
 #titleArea {
     margin: 0 0 50px 0;
     font-family: "Playfair Display", serif;
-    transform:scale(1.05,1);
+    transform: scale(1.05, 1);
     font-size: 33px;
     line-height: 140%;
 }
 
 #group {
-    width: 367px;
-    height: 100px;
-    margin: auto auto 30px auto;
+    width: 380px;
+    height: 120px;
+    margin: auto auto 35px auto;
     border: 1px solid darkgray;
     border-radius: 3px;
 }
@@ -31,30 +31,39 @@ body {
     border: none;
     outline: none;
     background: transparent;
-    font-size: 15px;
+    font-size: 16px;
+    color: black;
 }
 
 hr {
     width: 90%;
     height: 1px;
     margin: auto;
-    border:none;
-    background-color: darkgray;
+    border: none;
+    background: darkgray;
 }
 
 #resultArea {
     width: 90%;
     height: 60%;
-    line-height: 55px;
+    line-height: 70px;
     margin: auto auto 30px auto;
     font-family: "Times New Roman", serif;
-    font-size: 28px;
+    font-size: 30px;
     background: transparent;
+}
+
+table {
+    width: 390px;
+    margin: auto;
+    height: 160px;
+    border-spacing: 5px;
+    border-collapse: separate;
 }
 
 button {
     width: 55px;
-    height:30px;
+    height: 30px;
     text-align: center;
     border: 1px solid darkgray;
     border-radius: 3px;
@@ -71,12 +80,4 @@ button:hover {
 
 button:active {
     transform: translateY(2px);
-}
-
-table {
-    width: 380px;
-    margin: auto;
-    height: 160px;
-    border-spacing: 5px;
-    border-collapse: separate;
 }

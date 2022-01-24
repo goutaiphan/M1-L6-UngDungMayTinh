@@ -25,13 +25,7 @@
         ['(', ')', '×', 4, 5, 6],
         ['%', '‰', '-', 1, 2, 3],
         ['√', '^', '+', '.', 0, '=']];
-
     let inputArea = document.getElementById('inputArea');
-    inputArea.oninput = function () {
-        inputArea.value = inputArea.value
-            .replace(/[^0-9.,+\-*\/%()^]/g, '')
-            .replace(',', '.');
-    }
     let resultArea = document.getElementById('resultArea');
 
     let table = document.getElementById('tableArea');
@@ -44,7 +38,7 @@
 
         for (let j = 0; j < inputs[i].length; j++) {
             let button = document.createElement('button');
-            button.innerHTML = inputs[i][j];
+            button.innerHTML = String(inputs[i][j]);
             if (button.innerHTML.match(/[0-9]/)) {
                 button.className = 'buttonNumber';
             } else {
@@ -57,7 +51,7 @@
 
             switch (button.innerHTML) {
                 default:
-                    button.onclick = type;
+                    button.onclick = input;
                     break;
                 case 'C':
                     button.onclick = clear;
@@ -73,25 +67,29 @@
     }
 
     window.onkeydown = function (event) {
+        event.preventDefault();
         switch (event.key) {
-            case 'Enter':
-                result();
+            case String(event.key.match(/[0-9.,+\-*/%()^]/)):
+                input();
+                break;
+            case 'Backspace':
+                clear();
                 break;
             case 'Delete':
-                allClear();
-                break;
             case 'Clear':
                 allClear();
+                break;
+            case 'Enter':
+                result();
                 break;
         }
     }
 
-    function type() {
-        inputArea.value += String(this.innerHTML)
-            .replace('×', '*')
+    function input() {
+        let inputValue = this.innerHTML === undefined ? this.event.key : this.innerHTML;
+        inputArea.value += inputValue.replace('×', '*')
             .replace('÷', '/')
             .replace('√', '√(')
-            .replace('!', '!(')
             .replace('^', '^(');
         resultArea.innerHTML = '';
     }
@@ -112,20 +110,20 @@
         // inputArea.value = formatValue;
         // resultArea.innerHTML = eval(formatValue);
 
-        if (formatValue === '') {
-            inputArea.setCustomValidity("Biểu thức không hợp lệ.");
+        if (formatValue === '' || formatValue[0].match(/[^0-9+\-(√M]/)) {
+            inputArea.setCustomValidity('Biểu thức không hợp lệ.');
             inputArea.reportValidity();
         } else if (formatValue.includes('^')) {
             let caretCount = (formatValue.match(/\^/g)).length;
             let powers = formatValue.split('^');
             if (caretCount >= 2) {
-                inputArea.setCustomValidity("Biểu thức chỉ thực hiện 1 phép lũy thừa.");
+                inputArea.setCustomValidity('Biểu thức chỉ thực hiện 1 phép lũy thừa.');
                 inputArea.reportValidity();
             } else {
                 try {
                     resultArea.innerHTML = String(Math.pow(eval(powers[0]), eval(powers[1])));
                 } catch (e) {
-                    inputArea.setCustomValidity("Biểu thức không hợp lệ.");
+                    inputArea.setCustomValidity('Biểu thức không hợp lệ.');
                     inputArea.reportValidity();
                 }
             }
@@ -141,38 +139,23 @@
     }
 
     function format(inputValue) {
-        let formatValue = inputValue
-            .replaceAll('%', '/100')
+        let reMinus = inputValue.match(/(-)\1+/g);
+        if (reMinus !== null) {
+            for (let i = 0; i < reMinus.length; i++) {
+                inputValue = reMinus[i].length % 2 === 0
+                    ? inputValue.replace(reMinus[i], '+')
+                    : inputValue.replace(reMinus[i], '-');
+            }
+        }
+
+        inputValue = inputValue.replaceAll('%', '/100')
             .replaceAll('‰', '/1000')
             .replaceAll('√\(', 'Math.sqrt(')
+            .replaceAll(',', '.')
+            .replace(/(\+)\1+/g, '+')
             .replace(/(\*)\1+/g, '*')
             .replace(/(\/)\1+/g, '/')
-            .replace(/(\.)\1+/g, '.')
-            .replace(/\(/g, '*(')
-            .replace(/Math\.sqrt\*\(/g, 'Math.sqrt(')
-            .replace(/Math\.sqrt\(/g, '*Math.sqrt(');
-
-        if (formatValue[0] === '*') {
-            formatValue = formatValue.substr(1, formatValue.length);
-        }
-
-        let reMinus = formatValue.match(/(-)\1+/g);
-        if (reMinus !== null) {
-            for (let k = 0; k < reMinus.length; k++) {
-                if (reMinus[k].length % 2 === 0) {
-                    formatValue = formatValue.replace(reMinus[k], '+');
-                } else {
-                    formatValue = formatValue.replace(reMinus[k], '-');
-                }
-            }
-        }
-
-        let rePlus = formatValue.match(/(\+)\1+/g);
-        if (rePlus !== null) {
-            for (let k = 0; k < rePlus.length; k++) {
-                formatValue = formatValue.replace(rePlus[k], '+');
-            }
-        }
-        return formatValue;
+            .replace(/(\.)\1+/g, '.');
+        return inputValue;
     }
 </script>
