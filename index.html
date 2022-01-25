@@ -8,7 +8,7 @@
 </head>
 
 <body>
-<p id="titleArea">Ứng dụng<br>máy tính bỏ túi</p>
+<p id="titleArea">Ứng dụng<br>Máy tính bỏ túi</p>
 
 <div id="group">
     <input id="inputArea">
@@ -24,17 +24,14 @@
     let inputs = [['AC', 'C', '÷', 7, 8, 9],
         ['(', ')', '×', 4, 5, 6],
         ['%', '‰', '-', 1, 2, 3],
-        ['√', 'x<sup>y</sup>', '+', '.', 0, '=']];
+        ['√', '^', '+', '.', 0, '=']];
     let inputArea = document.getElementById('inputArea');
     let resultArea = document.getElementById('resultArea');
-
-    let table = document.getElementById('tableArea');
-    let tableBody = document.createElement('tbody');
-    table.appendChild(tableBody);
+    let tableArea = document.getElementById('tableArea');
 
     for (let i = 0; i < inputs.length; i++) {
         let tableRow = document.createElement('tr');
-        tableBody.appendChild(tableRow);
+        tableArea.appendChild(tableRow);
 
         for (let j = 0; j < inputs[i].length; j++) {
             let button = document.createElement('button');
@@ -86,11 +83,11 @@
     }
 
     function input() {
-        let inputValue = this.innerHTML === undefined ? this.event.key : this.innerHTML;
+        let inputValue = this.innerHTML !== undefined ? this.innerHTML : this.event.key;
         inputArea.value += inputValue.replace('×', '*')
             .replace('÷', '/')
             .replace('√', '√(')
-            .replace('x<sup>y</sup>', '^(');
+            .replace('^', '^(');
         resultArea.innerHTML = '';
     }
 
