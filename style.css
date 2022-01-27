@@ -18,11 +18,10 @@ body {
 }
 
 #titleArea {
-    margin: 0 0 50px 0;
+    margin: 0 0 70px 0;
     font-family: 'Playfair Display', serif;
-    font-size: 33px;
+    font-size: 35px;
     transform: scale(1.05, 1);
-    line-height: 140%;
 }
 
 #group {
