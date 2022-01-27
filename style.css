@@ -1,17 +1,17 @@
 @font-face {
-    font-family: 'Playfair Display';
-    src: url('/asset/PlayfairDisplay.ttf');
+    font-family: 'PlayfairDisplay';
+    src: url('asset/PlayfairDisplay.ttf');
 }
 
 @font-face {
-    font-family: 'Times New Roman';
-    src: url('/asset/TimesNewRoman.ttf');
+    font-family: 'TimesNewRoman';
+    src: url('asset/TimesNewRoman.ttf');
 }
 
 body {
     margin: 100px 50px 150px 50px;
     text-align: center;
-    background-image: url('/asset/TriangleBackground.png');
+    background-image: url('asset/TriangleBackground.png');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
