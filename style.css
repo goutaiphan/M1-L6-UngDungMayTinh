@@ -10,7 +10,6 @@
 
 body {
     margin: 100px 50px 150px 50px;
-    text-align: center;
     background-image: url('/asset/TriangleBackground.png');
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -19,15 +18,16 @@ body {
 
 #titleArea {
     margin: 0 0 70px 0;
+    text-align: center;
     font-family: 'Playfair Display', serif;
     font-size: 35px;
     transform: scale(1.05, 1);
 }
 
-#group {
+#groupArea {
     width: 380px;
     height: 120px;
-    margin: auto auto 35px auto;
+    margin: auto auto 40px auto;
     border: 1px solid gray;
     border-radius: 3px;
 }
