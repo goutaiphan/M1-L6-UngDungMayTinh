@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>Ứng dụng Máy tính bỏ túi</title>
     <link href="style.css" rel="stylesheet">
+    <link rel="shortcut icon" href="#"/>
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=0.8">
 </head>
 
@@ -49,7 +50,9 @@
 
             switch (button.innerHTML) {
                 default:
-                    button.onclick = input;
+                    button.onclick = function () {
+                        input(button.innerHTML);
+                    };
                     break;
                 case 'C':
                     button.onclick = clear;
@@ -68,7 +71,7 @@
         event.preventDefault();
         switch (event.key) {
             case String(event.key.match(/[0-9.,+\-*/%()^]/)):
-                input();
+                input(event.key);
                 break;
             case 'Backspace':
                 clear();
@@ -83,9 +86,8 @@
         }
     }
 
-    function input() {
-        let inputValue = this.innerHTML !== undefined ? this.innerHTML : this.event.key;
-        inputArea.value += inputValue.replace('×', '*')
+    function input(key) {
+        inputArea.value += key.replace('×', '*')
             .replace('÷', '/')
             .replace('√', '√(')
             .replace('^', '^(');
@@ -105,8 +107,6 @@
 
     function result() {
         let formatValue = format(inputArea.value);
-        // inputArea.value = formatValue;
-        // resultArea.innerHTML = eval(formatValue);
 
         if (formatValue === '' || formatValue[0].match(/[^0-9+\-(√M]/)) {
             inputArea.setCustomValidity('Biểu thức không hợp lệ.');
