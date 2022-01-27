@@ -10,6 +10,7 @@
 
 body {
     margin: 100px 50px 150px 50px;
+    text-align: center;
     background-image: url('/asset/TriangleBackground.png');
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -17,17 +18,16 @@ body {
 }
 
 #titleArea {
-    margin: 0 0 70px 0;
-    text-align: center;
+    margin: 70px auto;
     font-family: 'Playfair Display', serif;
     font-size: 35px;
     transform: scale(1.05, 1);
 }
 
-#groupArea {
+#boardArea {
     width: 380px;
     height: 120px;
-    margin: auto auto 40px auto;
+    margin: 40px auto;
     border: 1px solid gray;
     border-radius: 3px;
 }
@@ -55,16 +55,17 @@ hr {
     width: 90%;
     height: 60%;
     line-height: 70px;
-    margin: auto auto 30px auto;
+    margin: auto;
     font-family: 'Times New Roman', serif;
     font-size: 30px;
     background: transparent;
 }
 
 table {
-    width: 397px;
-    margin: auto;
+    width: 399px;
     height: 160px;
+    margin: auto;
+    position: relative;
     border-spacing: 5px;
     border-collapse: separate;
 }
