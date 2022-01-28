@@ -116,30 +116,26 @@
         let formatValue = format(inputArea.value);
         inputArea.value = formatValue.replaceAll('Math.sqrt(', '√\(');
 
-        if (formatValue === '') {
-            inputArea.setCustomValidity('Biểu thức không hợp lệ.');
-            inputArea.reportValidity();
-        } else if (formatValue.includes('^')) {
-            let caretAmount = (formatValue.match(/\^/g)).length;
-            let powers = formatValue.split('^');
-            if (caretAmount >= 2) {
-                inputArea.setCustomValidity('Biểu thức chỉ thực hiện 1 phép lũy thừa.');
-                inputArea.reportValidity();
-            } else {
-                try {
-                    resultArea.innerHTML = String(Math.pow(eval(powers[0]), eval(powers[1])));
-                } catch (e) {
-                    inputArea.setCustomValidity('Biểu thức không hợp lệ.');
+        try {
+            let result = eval(formatValue);
+            if (formatValue.includes('^')) {
+                let caretAmount = (formatValue.match(/\^/g)).length;
+                let powers = formatValue.split('^');
+                if (caretAmount >= 2) {
+                    inputArea.setCustomValidity('Biểu thức chỉ thực hiện 1 phép lũy thừa.');
                     inputArea.reportValidity();
+                } else {
+                    resultArea.innerHTML = String(Math.pow(eval(powers[0]), eval(powers[1])));
                 }
-            }
-        } else {
-            try {
-                resultArea.innerHTML = String(eval(formatValue));
-            } catch {
+            } else if (typeof (result) === 'number') {
+                resultArea.innerHTML = String(result);
+            } else {
                 inputArea.setCustomValidity('Biểu thức không hợp lệ.');
                 inputArea.reportValidity();
             }
+        } catch {
+            inputArea.setCustomValidity('Biểu thức không hợp lệ.');
+            inputArea.reportValidity();
         }
     }
 
