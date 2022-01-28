@@ -55,10 +55,10 @@
                     };
                     break;
                 case 'C':
-                    button.onclick = clear;
+                    button.onclick = clearRight;
                     break;
                 case 'AC':
-                    button.onclick = allClear;
+                    button.onclick = clearAll;
                     break;
                 case '=':
                     button.onclick = result;
@@ -68,17 +68,20 @@
     }
 
     window.onkeydown = function (event) {
+        inputArea.setCustomValidity('');
         event.preventDefault();
         switch (event.key) {
             case String(event.key.match(/[0-9.,+\-*/%()^]/)):
                 input(event.key);
                 break;
             case 'Backspace':
-                clear();
+                clearRight();
                 break;
             case 'Delete':
+                clearLeft();
+                break;
             case 'Clear':
-                allClear();
+                clearAll();
                 break;
             case 'Enter':
                 result();
@@ -94,27 +97,32 @@
         resultArea.innerHTML = '';
     }
 
-    function clear() {
-        inputArea.value = inputArea.value
-            .substr(0, inputArea.value.length - 1);
+    function clearRight() {
+        inputArea.value = inputArea.value.substring(0, inputArea.value.length - 1);
         resultArea.innerHTML = '';
     }
 
-    function allClear() {
+    function clearLeft() {
+        inputArea.value = inputArea.value.substring(1);
+        resultArea.innerHTML = '';
+    }
+
+    function clearAll() {
         inputArea.value = '';
         resultArea.innerHTML = '';
     }
 
     function result() {
         let formatValue = format(inputArea.value);
+        inputArea.value = formatValue.replaceAll('Math.sqrt(', '√\(');
 
-        if (formatValue === '' || formatValue[0].match(/[^0-9+\-(√M]/)) {
+        if (formatValue === '') {
             inputArea.setCustomValidity('Biểu thức không hợp lệ.');
             inputArea.reportValidity();
         } else if (formatValue.includes('^')) {
-            let caretCount = (formatValue.match(/\^/g)).length;
+            let caretAmount = (formatValue.match(/\^/g)).length;
             let powers = formatValue.split('^');
-            if (caretCount >= 2) {
+            if (caretAmount >= 2) {
                 inputArea.setCustomValidity('Biểu thức chỉ thực hiện 1 phép lũy thừa.');
                 inputArea.reportValidity();
             } else {
@@ -127,10 +135,9 @@
             }
         } else {
             try {
-                inputArea.value = formatValue.replaceAll('Math.sqrt(', '√\(');
-                resultArea.innerHTML = eval(formatValue);
-            } catch (e) {
-                inputArea.setCustomValidity("Biểu thức không hợp lệ.");
+                resultArea.innerHTML = String(eval(formatValue));
+            } catch {
+                inputArea.setCustomValidity('Biểu thức không hợp lệ.');
                 inputArea.reportValidity();
             }
         }
@@ -145,8 +152,7 @@
                     : inputValue.replace(reMinus[i], '-');
             }
         }
-
-        inputValue = inputValue.replaceAll('%', '/100')
+        return inputValue.replaceAll('%', '/100')
             .replaceAll('‰', '/1000')
             .replaceAll('√\(', 'Math.sqrt(')
             .replaceAll(',', '.')
@@ -154,6 +160,5 @@
             .replace(/(\*)\1+/g, '*')
             .replace(/(\/)\1+/g, '/')
             .replace(/(\.)\1+/g, '.');
-        return inputValue;
     }
 </script>
