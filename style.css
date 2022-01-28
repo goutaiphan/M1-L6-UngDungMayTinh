@@ -1,6 +1,6 @@
 #titleArea {
     margin: auto;
-    font-family: 'Playfair Display', serif;
+    font-family: 'PlayfairDisplay', serif;
     font-size: 35px;
     transform: scale(1.05, 1);
 }
@@ -37,7 +37,7 @@ hr {
     height: 60%;
     line-height: 70px;
     margin: auto;
-    font-family: 'Times New Roman', serif;
+    font-family: 'TimesNewRoman', serif;
     font-size: 30px;
     background: transparent;
 }
