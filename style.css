@@ -1,22 +1,3 @@
-@font-face {
-    font-family: 'PlayfairDisplay';
-    src: url('asset/PlayfairDisplay.ttf');
-}
-
-@font-face {
-    font-family: 'TimesNewRoman';
-    src: url('asset/TimesNewRoman.ttf');
-}
-
-body {
-    margin: 100px 50px 150px 50px;
-    text-align: center;
-    background-image: url('asset/TriangleBackground.png');
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-}
-
 #titleArea {
     margin: 70px auto;
     font-family: 'Playfair Display', serif;
