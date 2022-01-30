@@ -23,7 +23,7 @@
 </html>
 
 <script>
-    let inputs = [['AC', 'C', '÷', 7, 8, 9],
+    let inputArray = [['AC', 'C', '÷', 7, 8, 9],
         ['(', ')', '×', 4, 5, 6],
         ['%', '‰', '-', 1, 2, 3],
         ['√', '^', '+', '.', 0, '=']];
@@ -31,13 +31,13 @@
     let resultArea = document.getElementById('resultArea');
     let tableArea = document.getElementById('tableArea');
 
-    for (let i = 0; i < inputs.length; i++) {
+    for (let i = 0; i < inputArray.length; i++) {
         let tableRow = document.createElement('tr');
         tableArea.appendChild(tableRow);
 
-        for (let j = 0; j < inputs[i].length; j++) {
+        for (let j = 0; j < inputArray[i].length; j++) {
             let button = document.createElement('button');
-            button.innerHTML = String(inputs[i][j]);
+            button.innerHTML = String(inputArray[i][j]);
             if (button.innerHTML.match(/[0-9]/)) {
                 button.className = 'buttonNumber';
             } else {
