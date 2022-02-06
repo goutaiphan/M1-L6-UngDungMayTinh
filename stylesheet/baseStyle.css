@@ -28,13 +28,13 @@ body {
 }
 
 #titleArea {
-    margin: auto;
     font-family: 'PlayfairDisplay', serif;
     font-size: 35px;
     transform: scale(1.05, 1);
 }
 
 #boardArea {
+    width: 98%;
     height: 120px;
     margin: 70px auto 40px;
     border: 1px solid gray;
@@ -42,13 +42,14 @@ body {
 }
 
 #inputArea {
+    width: 90%;
     height: 40%;
     margin: auto;
     text-align: center;
+    font-size: 16px;
     border: none;
     outline: none;
     background: transparent;
-    font-size: 16px;
 }
 
 hr {
@@ -60,37 +61,39 @@ hr {
 }
 
 #resultArea {
+    width: 90%;
     height: 60%;
-    line-height: 70px;
     margin: auto;
+    line-height: 70px;
     font-family: 'TimesNewRoman', serif;
     font-size: 30px;
-    background: transparent;
 }
 
 table {
     width: 100%;
     margin: auto;
+    border-spacing: 5px;
 }
 
-button {
-    width: 55px;
+td {
+    width: 15%;
     height: 30px;
-    margin: 6px 7px 0 0;
     text-align: center;
+    font-family: Roboto, serif;
+    font-size: 14px;
     border: 1px solid gray;
     border-radius: 3px;
     background: lightgray;
 }
 
-.buttonNumber {
+#buttonNumber {
     background: darkgray;
 }
 
-button:hover, .buttonNumber:hover {
+td:hover, #buttonNumber:hover {
     background: gray;
 }
 
-button:active {
+td:active {
     transform: translateY(2px);
 }

@@ -14,13 +14,13 @@ for (let i = 0; i < inputArray.length; i++) {
     tableArea.appendChild(row);
 
     for (let j = 0; j < inputArray[i].length; j++) {
-        let button = document.createElement('button');
+        let button = document.createElement('td');
         row.appendChild(button);
         button.innerHTML = String(inputArray[i][j]);
         if (button.innerHTML.match(/[0-9]/)) {
-            button.className = 'buttonNumber';
+            button.id = 'buttonNumber';
         } else {
-            button.className = 'buttonCalculus';
+            button.id = 'buttonCalculus';
         }
 
         switch (button.innerHTML) {
