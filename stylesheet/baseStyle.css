@@ -2,11 +2,19 @@
     body {
         width: 95%;
     }
+
+    #titleArea {
+        font-size: 30px;
+    }
 }
 
 @media only screen and (min-width: 500px) {
     body {
         width: 400px;
+    }
+
+    #titleArea {
+        font-size: 35px;
     }
 }
 
@@ -29,7 +37,6 @@ body {
 
 #titleArea {
     font-family: 'PlayfairDisplay', serif;
-    font-size: 35px;
     transform: scale(1.05, 1);
 }
 
@@ -72,7 +79,7 @@ hr {
 table {
     width: 100%;
     margin: auto;
-    border-spacing: 5px;
+    border-spacing: 8px;
 }
 
 td {
