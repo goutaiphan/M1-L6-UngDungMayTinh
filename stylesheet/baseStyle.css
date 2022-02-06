@@ -1,10 +1,20 @@
-@media only screen and (hover: none) and (pointer: coarse) {
+@media screen and (hover: none) and (pointer: coarse) {
     body {
         width: 95%;
     }
 
     #titleArea {
         font-size: 33px;
+    }
+}
+
+@media screen and (hover: hover) and (pointer: fine) {
+    body {
+        width: 400px;
+    }
+
+    #titleArea {
+        font-size: 35px;
     }
 }
 
@@ -22,7 +32,6 @@
 
 body {
     margin: 100px auto 150px;
-
     text-align: center;
     background-image: url('../media/TriangleBackground.png');
     background-size: cover;
@@ -33,7 +42,6 @@ body {
 #titleArea {
     margin: auto auto 60px;
     font-family: 'PlayfairDisplay', serif;
-    
     transform: scale(1.05, 1);
 }
 
