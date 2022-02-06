@@ -48,7 +48,7 @@ body {
 }
 
 #boardArea {
-    width: 96%;
+    width: 90%;
     height: 120px;
     margin: auto auto 30px;
     border: 1px solid gray;
@@ -80,7 +80,7 @@ hr {
 }
 
 table {
-    width: 100%;
+    width: 94%;
     margin: auto;
     border-spacing: 8px;
 }
