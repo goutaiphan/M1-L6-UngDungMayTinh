@@ -4,7 +4,7 @@
     }
 
     #titleArea {
-        font-size: 30px;
+        font-size: 35px;
     }
 }
 
@@ -36,14 +36,15 @@ body {
 }
 
 #titleArea {
+    margin: auto auto 60px;
     font-family: 'PlayfairDisplay', serif;
     transform: scale(1.05, 1);
 }
 
 #boardArea {
-    width: 98%;
+    width: 96%;
     height: 120px;
-    margin: 70px auto 40px;
+    margin: auto auto 30px;
     border: 1px solid gray;
     border-radius: 3px;
 }
