@@ -44,6 +44,7 @@ body {
     margin: auto auto 60px;
     font-family: 'PlayfairDisplay', serif;
     transform: scale(1.05, 1);
+    white-space: nowrap;
 }
 
 #boardArea {
