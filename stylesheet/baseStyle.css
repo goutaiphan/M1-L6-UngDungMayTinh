@@ -1,3 +1,15 @@
+@media only screen and (max-width: 500px) {
+    body {
+        width: 95%;
+    }
+}
+
+@media only screen and (min-width: 500px) {
+    body {
+        width: 400px;
+    }
+}
+
 * {
     left: 0;
     right: 0;
@@ -23,7 +35,6 @@ body {
 }
 
 #boardArea {
-    width: 380px;
     height: 120px;
     margin: 70px auto 40px;
     border: 1px solid gray;
@@ -31,7 +42,6 @@ body {
 }
 
 #inputArea {
-    width: 90%;
     height: 40%;
     margin: auto;
     text-align: center;
@@ -50,7 +60,6 @@ hr {
 }
 
 #resultArea {
-    width: 90%;
     height: 60%;
     line-height: 70px;
     margin: auto;
@@ -60,17 +69,14 @@ hr {
 }
 
 table {
-    width: 397px;
-    height: 160px;
+    width: 100%;
     margin: auto;
-    position: relative;
-    border-spacing: 5px;
-    border-collapse: separate;
 }
 
 button {
     width: 55px;
     height: 30px;
+    margin: 6px 7px 0 0;
     text-align: center;
     border: 1px solid gray;
     border-radius: 3px;

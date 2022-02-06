@@ -10,21 +10,18 @@ let resultArea = document.getElementById('resultArea');
 let tableArea = document.getElementById('tableArea');
 
 for (let i = 0; i < inputArray.length; i++) {
-    let tableRow = document.createElement('tr');
-    tableArea.appendChild(tableRow);
+    let row = document.createElement('tr');
+    tableArea.appendChild(row);
 
     for (let j = 0; j < inputArray[i].length; j++) {
         let button = document.createElement('button');
+        row.appendChild(button);
         button.innerHTML = String(inputArray[i][j]);
         if (button.innerHTML.match(/[0-9]/)) {
             button.className = 'buttonNumber';
         } else {
             button.className = 'buttonCalculus';
         }
-
-        let tableCell = document.createElement('td');
-        tableCell.appendChild(button);
-        tableRow.appendChild(tableCell);
 
         switch (button.innerHTML) {
             default:

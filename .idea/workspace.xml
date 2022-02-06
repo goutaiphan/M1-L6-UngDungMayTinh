@@ -5,19 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2ad2e2ee-9273-4f17-b0a6-8713e3c0eb37" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitattributes" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javascript/baseScript.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javascript/functionScript.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stylesheet/animationStyle.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stylesheet/fontStyle.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset/PlayfairDisplay.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/font/PlayfairDisplay.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset/TimesNewRoman.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/font/TimesNewRoman.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset/TriangleBackground.png" beforeDir="false" afterPath="$PROJECT_DIR$/media/TriangleBackground.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/baseStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/stylesheet/baseStyle.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javascript/baseScript.js" beforeDir="false" afterPath="$PROJECT_DIR$/javascript/baseScript.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stylesheet/baseStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/stylesheet/baseStyle.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,7 +83,7 @@
       <workItem from="1643564281525" duration="59000" />
       <workItem from="1643565963472" duration="4501000" />
       <workItem from="1644089290628" duration="639000" />
-      <workItem from="1644155790211" duration="4628000" />
+      <workItem from="1644155790211" duration="6275000" />
     </task>
     <servers />
   </component>
