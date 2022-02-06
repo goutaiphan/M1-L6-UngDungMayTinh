@@ -24,6 +24,7 @@
     top: 0;
     bottom: 0;
     box-sizing: border-box;
+    background: transparent;
 }
 
 body {
@@ -57,7 +58,6 @@ body {
     font-size: 16px;
     border: none;
     outline: none;
-    background: transparent;
 }
 
 hr {
@@ -87,7 +87,7 @@ td {
     width: 15%;
     height: 30px;
     text-align: center;
-    font-family: Roboto, serif;
+    font-family: 'Roboto', serif;
     font-size: 14px;
     border: 1px solid gray;
     border-radius: 3px;
