@@ -3,7 +3,7 @@ import {input, clear, clearAll, result} from './functionScript.js';
 
 let width = Math.min(screen.width, screen.height);
 let widthRatio = width / 500;
-console.log(widthRatio);
+alert(screen.width + '/' + screen.height);
 if (screen.width < 400) {
     widthRatio = widthRatio * 1.1;
     document.body.style.width = width + 'px';
