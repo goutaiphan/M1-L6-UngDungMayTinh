@@ -14,9 +14,8 @@ if (screen.width <= 320) {
 } else if (screen.width <= 400) {
     widthRatio = widthRatio * 1.1;
     document.body.style.width = width + 'px';
-    document.body.style.height = innerHeight + 'px';
-    document.body.style.paddingTop = 50 + 'px';
-    document.body.style.paddingBottom = 250 + 'px';
+    document.body.style.height = height + 'px';
+    document.body.style.paddingBottom = 200 + 'px';
 } else if (screen.width < 768) {
     document.body.style.width = width + 'px';
     //document.body.style.height = screen.height * 80 / 100 + 'px';
