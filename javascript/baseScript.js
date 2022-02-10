@@ -2,19 +2,26 @@ export {inputArea, resultArea};
 import {input, clear, clearAll, result} from './functionScript.js';
 
 let width = Math.min(screen.width, screen.height);
-let widthRatio = width <= 500
-    ? width / 500 * 1.1
-    : 1.3;
-
-if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-    document.body.style.transform = `scale(${widthRatio})`;
+let widthRatio = width / 500;
+console.log(screen.width);
+if (screen.width < 768) {
+    widthRatio = widthRatio * 1.1;
     document.body.style.width = width + 'px';
     document.body.style.paddingTop = 50 + 'px';
     document.body.style.paddingBottom = 100 + 'px';
-} else {
+} else if (screen.width < 992) {
+    widthRatio = widthRatio * 0.9;
     document.body.style.width = '450px';
-    document.body.style.paddingBottom = 200 + 'px';
+    document.body.style.height = screen.height * 80 / 100 + 'px';
+    document.body.style.paddingTop = 50 + 'px';
+    document.body.style.paddingBottom = 50 + 'px';
+} else {
+    widthRatio = widthRatio * 0.8;
+    document.body.style.width = '450px';
+    document.body.style.paddingTop = 100 + 'px';
+    document.body.style.paddingBottom = 150 + 'px';
 }
+document.body.style.transform = `scale(${widthRatio})`;
 
 let inputArray = [['AC', 'C', '÷', 7, 8, 9],
     ['(', ')', '×', 4, 5, 6],
