@@ -3,15 +3,20 @@ import {input, clear, clearAll, result} from './functionScript.js';
 
 let width = Math.min(screen.width, screen.height);
 let widthRatio = width / 500;
-console.log(screen.width);
-if (screen.width < 768) {
+console.log(widthRatio);
+if (screen.width < 400) {
     widthRatio = widthRatio * 1.1;
     document.body.style.width = width + 'px';
     document.body.style.paddingTop = 50 + 'px';
     document.body.style.paddingBottom = 100 + 'px';
+} else if (screen.width < 768) {
+    document.body.style.width = width + 'px';
+    //document.body.style.height = screen.height * 80 / 100 + 'px';
+    document.body.style.paddingTop = 70 + 'px';
+    document.body.style.paddingBottom = 120 + 'px';
 } else if (screen.width < 992) {
     widthRatio = widthRatio * 0.9;
-    document.body.style.width = '450px';
+    document.body.style.width = 450 + 'px';
     document.body.style.height = screen.height * 80 / 100 + 'px';
     document.body.style.paddingTop = 50 + 'px';
     document.body.style.paddingBottom = 50 + 'px';
