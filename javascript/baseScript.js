@@ -13,8 +13,8 @@ if (screen.width <= 320) {
     document.body.style.paddingBottom = 100 + 'px';
 } else if (screen.width <= 400) {
     widthRatio = widthRatio * 1.1;
-    document.body.style.width = width + 'px';
-    document.body.style.height = 'max-content';
+    document.body.style.width = '100%';
+    document.body.style.height = '100%';
     document.body.style.paddingBottom = 200 + 'px';
 } else if (screen.width < 768) {
     document.body.style.width = width + 'px';
