@@ -1,58 +1,40 @@
-@media screen and (hover: none) and (pointer: coarse) {
-    body {
-        width: 95%;
-    }
-
-    #titleArea {
-        font-size: 32px;
-    }
-}
-
-@media screen and (hover: hover) and (pointer: fine),
-(hover: none) and (pointer: coarse) and (min-width: 500px) {
-    body {
-        width: 400px;
-    }
-
-    #titleArea {
-        font-size: 34px;
-    }
-}
-
 * {
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
+    margin: 0;
     position: relative;
     box-sizing: border-box;
     border: none;
     outline: none;
+    white-space: nowrap;
     background-color: transparent;
+    background-size: cover;
     background-repeat: no-repeat;
     -webkit-tap-highlight-color: transparent;
 }
 
 body {
-    margin: 100px auto 150px;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: start;
+
+    max-width: 400px;
+    min-height: 100vh;
     text-align: center;
-    background-image: url('../media/TriangleBackground.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    margin: auto;
 }
 
 #titleArea {
-    margin: auto auto 60px;
+    width: 95%;
+    margin-bottom: 60px;
     font-family: 'PlayfairDisplay', serif;
+    font-size: 34px;
     transform: scale(1.05, 1);
-    white-space: nowrap;
 }
 
 #boardArea {
-    width: 90%;
+    width: 95.5%;
     height: 120px;
-    margin: auto auto 30px;
+    margin-bottom: 40px;
     border: 1px solid gray;
     border-radius: 3px;
 }
@@ -81,16 +63,14 @@ hr {
     font-size: 30px;
 }
 
-table {
-    width: 94%;
-    margin: auto;
-    border-spacing: 8px;
+#tableArea {
+    width: 100%;
+    border-spacing: 9px;
 }
 
 td {
-    width: 15%;
+    width: 17%;
     height: 30px;
-    text-align: center;
     font-family: 'Roboto', serif;
     font-size: 14px;
     border: 1px solid gray;
