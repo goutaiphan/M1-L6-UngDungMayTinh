@@ -11,7 +11,7 @@ alert(width);
 
 if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
     document.body.style.transform = `scale(${widthRatio})`;
-    
+    document.body.style.width = width + 'px';
     document.body.style.paddingBottom = 200 + 'px';
 } else {
     document.body.style.width = '450px';
