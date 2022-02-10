@@ -6,8 +6,7 @@ let widthRatio = width <= 500
     ? width / 500 * 1.1
     : 1.3;
 
-document.body.style.width = innerWidth + 'px';
-document.body.style.height = innerHeight + 'px';
+
 
 if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
     document.body.style.transform = `scale(${widthRatio})`;
