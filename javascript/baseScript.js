@@ -4,7 +4,7 @@ import {input, clear, clearAll, result} from './functionScript.js';
 let width = Math.min(screen.width, screen.height);
 let height = Math.max(screen.width, screen.height);
 let widthRatio = width / 500;
-//alert(innerWidth + '/' + innerHeight);
+alert(innerWidth + '/' + innerHeight);
 if (screen.width <= 320) {
     widthRatio = widthRatio * 1.3;
     document.body.style.width = width + 'px';
