@@ -6,12 +6,12 @@ let widthRatio = width <= 500
     ? width / 500 * 1.1
     : 1.3;
 
-
+alert(innerHeight + ' / ' + document.body.offsetHeight);
 
 if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
     document.body.style.transform = `scale(${widthRatio})`;
     document.body.style.width = 450 * widthRatio + 'px';
-    document.body.style.height = innerHeight + 'px';
+    //document.body.style.height = innerHeight + 'px';
     document.body.style.paddingBottom = 200 + 'px';
 } else {
     document.body.style.width = '450px';
