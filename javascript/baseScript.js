@@ -5,14 +5,16 @@ let width = Math.min(screen.width, screen.height);
 let widthRatio = width <= 500
     ? width / 500 * 1.1
     : 1.3;
+
 if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
     document.body.style.transform = `scale(${widthRatio})`;
-    document.body.style.paddingTop = 50 * widthRatio + 'px';
-    document.body.style.paddingBottom = 50 * widthRatio + 'px';
+    document.body.style.width = 450 * widthRatio + 'px';
+    document.body.style.paddingTop = 50 + 'px';
+    document.body.style.paddingBottom = 200 + 'px';
 } else {
-    document.body.style.width = 500 * 90 / 100 + 'px';
-    document.body.style.paddingTop = 90 + 'px';
-    document.body.style.paddingBottom = 50 + 'px';
+    document.body.style.width = '450px';
+    document.body.style.paddingTop = 50 + 'px';
+    document.body.style.paddingBottom = 200 + 'px';
 }
 
 let inputArray = [['AC', 'C', '÷', 7, 8, 9],
