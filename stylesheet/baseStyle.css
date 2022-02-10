@@ -16,8 +16,6 @@ body {
     flex-flow: column nowrap;
     align-items: center;
     justify-content: center;
-
-    height: 100vh;
     text-align: center;
     margin: auto;
 }
