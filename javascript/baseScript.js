@@ -2,11 +2,13 @@ export {inputArea, resultArea};
 import {input, clear, clearAll, result} from './functionScript.js';
 
 let width = Math.min(screen.width, screen.height);
+let height = Math.max(screen.width, screen.height);
 let widthRatio = width / 500;
 alert(screen.width + '/' + screen.height);
 if (screen.width < 400) {
     widthRatio = widthRatio * 1.1;
     document.body.style.width = width + 'px';
+    document.body.style.height = height + 'px';
     document.body.style.paddingTop = 50 + 'px';
     document.body.style.paddingBottom = 100 + 'px';
 } else if (screen.width < 768) {
