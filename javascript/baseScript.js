@@ -1,13 +1,14 @@
 export {inputArea, resultArea};
 import {input, clear, clearAll, result} from './functionScript.js';
 
-let width = Math.min(screen.width, screen.height);
+let width = Math.min(innerWidth, innerHeight);
+let height = Math.max(innerWidth, innerHeight);
 let widthRatio = width <= 500
     ? width / 500 * 1.1
     : 1.3;
 
-document.body.style.width = innerWidth + 'px';
-document.body.style.height = innerHeight + 'px';
+document.body.style.width = width + 'px';
+document.body.style.height = height + 'px';
 
 if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
     document.body.style.transform = `scale(${widthRatio})`;
