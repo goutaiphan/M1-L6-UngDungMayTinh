@@ -10,8 +10,9 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
     document.body.style.paddingTop = 50 * widthRatio + 'px';
     document.body.style.paddingBottom = 50 * widthRatio + 'px';
 } else {
-    document.body.style.paddingTop = 90 * widthRatio + 'px';
-    document.body.style.paddingBottom = 50 * widthRatio + 'px';
+    document.body.style.width = 500 * 90 / 100 + 'px';
+    document.body.style.paddingTop = 90 + 'px';
+    document.body.style.paddingBottom = 50 + 'px';
 }
 
 let inputArray = [['AC', 'C', '÷', 7, 8, 9],
