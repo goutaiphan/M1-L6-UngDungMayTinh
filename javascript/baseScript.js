@@ -10,7 +10,7 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
     document.body.style.transform = `scale(${widthRatio})`;
     document.body.style.width = width + 'px';
     document.body.style.paddingTop = 50 + 'px';
-    document.body.style.paddingBottom = 50 + 'px';
+    document.body.style.paddingBottom = 100 + 'px';
 } else {
     document.body.style.width = '450px';
     document.body.style.paddingBottom = 200 + 'px';
