@@ -2,17 +2,16 @@ export {inputArea, resultArea};
 import {input, clear, clearAll, result} from './functionScript.js';
 
 let width = Math.min(screen.width, screen.height);
-let height = Math.max(innerWidth, innerHeight);
 let widthRatio = width <= 500
     ? width / 500 * 1.1
     : 1.3;
 
-alert(width);
-
 if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
     document.body.style.transform = `scale(${widthRatio})`;
     document.body.style.width = width + 'px';
-    document.body.style.paddingBottom = 200 + 'px';
+    document.body.style.paddingTop = 50 + 'px';
+    document.body.style.paddingBottom = 50 + 'px';
+    document.body.style.marginBottom = 150 + 'px';
 } else {
     document.body.style.width = '450px';
     document.body.style.paddingBottom = 200 + 'px';
