@@ -1,26 +1,32 @@
 export {inputArea, resultArea};
 import {input, clear, clearAll, result} from './functionScript.js';
 
-let width = Math.min(screen.width, screen.height);
-let height = Math.max(outerWidth, outerHeight);
-let widthRatio = width / 450;
-let heightRatio = height / 874;
-alert(innerWidth + '/' + outerWidth);
+if (navigator.userAgent.match(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i)) {
+    let width = Math.min(outerWidth, outerHeight);
+    let height = Math.max(outerWidth, outerHeight);
+    let widthRatio = width / 450;
+    let heightRatio = height / 850;
 
-if (width < 450) {
-    widthRatio = width < 360
-        ? widthRatio * 1.2
-        : widthRatio
-    document.body.style.width = width + 'px';
-    document.body.style.height = outerHeight + 'px';
+    if (width < 450) {
+        widthRatio = width < 360
+            ? widthRatio * 1.2
+            : widthRatio
+        document.body.style.width = width + 'px';
+        document.body.style.height = height + 'px';
+        document.body.style.paddingBottom = 150 * heightRatio + 'px';
+    } else {
+        widthRatio = widthRatio * 0.85;
+        document.body.style.width = '450px';
+        document.body.style.height = '874px';
+        //document.body.style.paddingTop = 100 * heightRatio + 'px';
+    }
+    document.body.style.transform = `scale(${widthRatio})`;
+
 } else {
-    widthRatio = width < 1080
-        ? widthRatio * 0.9
-        : 1;
     document.body.style.width = '450px';
-    document.body.style.height = 750 * heightRatio + 'px';
+    document.body.style.height = innerHeight + 'px';
+    document.body.style.padding = '0 0 200px;';
 }
-document.body.style.transform = `scale(${widthRatio})`;
 
 let inputArray = [['AC', 'C', '÷', 7, 8, 9],
     ['(', ')', '×', 4, 5, 6],
