@@ -4,32 +4,32 @@ import {input, clear, clearAll, result} from './functionScript.js';
 let width = Math.min(screen.width, screen.height);
 let height = Math.max(screen.width, screen.height);
 let widthRatio = width / 500;
-console.log(screen.height);
+console.log(width + '/' + height);
 
 if (navigator.userAgent.match(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i)) {
     if (width <= 320) {
         widthRatio = widthRatio * 1.3;
         document.body.style.width = width + 'px';
         document.body.style.height = height + 'px';
-        document.body.style.paddingBottom = 70 * screen.height / 658 + 'px';
+        document.body.style.paddingBottom = 70 * height / 658 + 'px';
     } else if (width < 450) {
         widthRatio = widthRatio * 1.1;
         document.body.style.width = width + 'px';
         document.body.style.height = height + 'px';
-        document.body.style.paddingBottom = 150 * screen.height / 658 + 'px';
+        //document.body.style.paddingBottom = 150 * height / 658 + 'px';
     } else if (width < 768) {
         document.body.style.width = 450 + 'px';
-        document.body.style.height = screen.height * 80 / 100 + 'px';
-        document.body.style.paddingBottom = 50 * screen.height / 658 + 'px';
+        document.body.style.height = height * 80 / 100 + 'px';
+        document.body.style.paddingBottom = 50 * height / 658 + 'px';
     } else if (width <= 992) {
         widthRatio = widthRatio * 0.9;
         document.body.style.width = 450 + 'px';
-        document.body.style.height = screen.height * 75 / 100 + 'px';
+        document.body.style.height = height * 75 / 100 + 'px';
         document.body.style.paddingTop = 50 + 'px';
     } else {
         widthRatio = widthRatio * 0.9;
         document.body.style.width = 450 + 'px';
-        document.body.style.height = screen.height * 70 / 100 + 'px';
+        document.body.style.height = height * 70 / 100 + 'px';
         document.body.style.paddingTop = 150 + 'px';
     }
 } else {
