@@ -1,10 +1,10 @@
 export {inputArea, resultArea};
 import {input, clear, clearAll, result} from './functionScript.js';
 
-let width = Math.min(innerWidth, innerHeight);
+let width = Math.min(screen.width, screen.height);
 let height = Math.max(innerWidth, innerHeight);
 let widthRatio = width / 500;
-alert(width + '/' + height + '/' + widthRatio);
+alert(width + '/' + height + ', ' + innerWidth + '/' + innerHeight);
 
 if (navigator.userAgent.match(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i)) {
     if (width <= 320) {
