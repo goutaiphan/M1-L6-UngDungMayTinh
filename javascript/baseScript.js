@@ -7,10 +7,7 @@ let widthRatio = width / 450;
 let heightRatio = height / 874;
 console.log(document.body.offsetWidth);
 
-if (width < 500) {
-    widthRatio = width < 360
-        ? widthRatio
-        : widthRatio
+if (width < 450) {
     document.body.style.width = width + 'px';
     document.body.style.height = height + 'px';
     document.body.style.paddingTop = 50 + 'px';
