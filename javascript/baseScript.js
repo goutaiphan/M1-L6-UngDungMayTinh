@@ -6,7 +6,7 @@ let height = Math.max(innerWidth, innerHeight);
 let widthRatio = width / 450;
 let heightRatio = height / 874;
 console.log(document.body.offsetWidth);
-
+alert(width);
 if (width < 360) {
     widthRatio = widthRatio * 1.2;
 } else if (width < 450) {
