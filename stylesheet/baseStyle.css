@@ -16,6 +16,9 @@ body {
     align-items: center;
     justify-content: center;
     text-align: center;
+
+    width: 450px;
+    height: max-content;
     margin: auto;
     padding: 50px 0 100px;
 }

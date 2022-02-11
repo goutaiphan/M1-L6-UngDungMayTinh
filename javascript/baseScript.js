@@ -1,33 +1,32 @@
 export {inputArea, resultArea};
 import {input, clear, clearAll, result} from './functionScript.js';
 
+// alert(screen.width + '/' + screen.height + ','
+//     + outerWidth + '/' + outerHeight);
+
 if (navigator.userAgent.match(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i)) {
     let width = Math.min(screen.width, screen.height);
     let height = Math.max(screen.width, screen.height);
     let widthRatio = width / 450;
     let heightRatio = height / 850;
-    // alert(screen.width + '/' + screen.height + ','
-    //     + outerWidth + '/' + outerHeight);
 
     if (width < 450) {
         widthRatio = width < 360
             ? widthRatio * 1.2
             : widthRatio
         document.body.style.width = width + 'px';
-        document.body.style.height = 'max-content';
         document.body.style.marginTop = 50 * heightRatio + 'px';
+    } else if (width < 1000) {
+        widthRatio = widthRatio * 0.85;
+        document.body.style.marginTop = 180 * heightRatio + 'px';
     } else {
         widthRatio = widthRatio * 0.85;
-        document.body.style.width = '450px';
-        document.body.style.height = 'max-content';
-        document.body.style.paddingTop = 170 * heightRatio + 'px';
+        document.body.style.marginTop = 220 * heightRatio + 'px';
     }
     document.body.style.transform = `scale(${widthRatio})`;
 
 } else {
-    document.body.style.width = '450px';
-    document.body.style.height = '850px';
-    document.body.style.paddingBottom = '150px';
+    document.body.style.marginTop = '80px';
 }
 
 let inputArray = [['AC', 'C', '÷', 7, 8, 9],
