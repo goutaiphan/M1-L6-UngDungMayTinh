@@ -2,7 +2,7 @@ export {inputArea, resultArea};
 import {input, clear, clearAll, result} from './functionScript.js';
 
 let width = Math.min(screen.width, screen.height);
-let height = Math.max(screen.width, screen.height);
+let height = Math.max(innerWidth, innerHeight);
 let widthRatio = width / 450;
 let heightRatio = height / 874;
 alert(screen.width + '/' + screen.height);
@@ -12,7 +12,7 @@ if (width < 450) {
         ? widthRatio * 1.2
         : widthRatio
     document.body.style.width = width + 'px';
-    document.body.style.height = height + 'px';
+    document.body.style.height = height + outerHeight + 'px';
 } else {
     widthRatio = width < 1080
         ? widthRatio * 0.9
