@@ -17,7 +17,7 @@ if (navigator.userAgent.match(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobil
     } else {
         widthRatio = widthRatio * 0.85;
         document.body.style.width = '450px';
-        document.body.style.height = '874px';
+        document.body.style.height = height + 'px';
         //document.body.style.paddingTop = 100 * heightRatio + 'px';
     }
     document.body.style.transform = `scale(${widthRatio})`;
@@ -25,7 +25,7 @@ if (navigator.userAgent.match(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobil
 } else {
     document.body.style.width = '450px';
     document.body.style.height = innerHeight + 'px';
-    document.body.style.padding = '0 0 200px;';
+    document.body.style.paddingBottom = '200px';
 }
 
 let inputArray = [['AC', 'C', '÷', 7, 8, 9],
