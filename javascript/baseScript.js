@@ -9,8 +9,8 @@ console.log(heightRatio);
 
 if (width < 450) {
     widthRatio = width < 360
-        ? widthRatio * 1.2
-        : widthRatio * 1
+        ? widthRatio * 1.3
+        : widthRatio * 1.2
     document.body.style.width = width + 'px';
     document.body.style.height = height + 'px';
     document.body.style.paddingTop = 50 + 'px';
