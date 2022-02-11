@@ -4,7 +4,7 @@ import {input, clear, clearAll, result} from './functionScript.js';
 let width = Math.min(innerWidth, innerHeight);
 let height = Math.max(innerWidth, innerHeight);
 let widthRatio = width / 500;
-console.log(width + '/' + height);
+alert(width + '/' + height + '/' + widthRatio);
 
 if (navigator.userAgent.match(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i)) {
     if (width <= 320) {
