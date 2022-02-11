@@ -4,32 +4,22 @@ import {input, clear, clearAll, result} from './functionScript.js';
 let width = Math.min(screen.width, screen.height);
 let height = Math.max(innerWidth, innerHeight);
 let widthRatio = width / 500;
+let heightRatio = height / 874;
+alert(innerWidth + '/' + innerHeight);
 
 if (width < 450) {
     widthRatio = width < 320
         ? widthRatio * 1.2
         : widthRatio * 1.1
     document.body.style.width = width + 'px';
-    document.body.style.height = height + 'px';
-    document.body.style.paddingTop = '50px';
-    document.body.style.paddingBottom = '150px';
-} else if (width < 1000) {
-    widthRatio = widthRatio * 0.9;
-    document.body.style.width = 450 + 'px';
-    document.body.style.height = innerHeight + 'px';
-    document.body.style.paddingTop = 50 + 'px';
-    document.body.style.paddingBottom = '100px';
-} else if (width < 1080) {
-    widthRatio = widthRatio * 0.9;
-    document.body.style.width = 450 + 'px';
-    document.body.style.height = height * 70 / 100 + 'px';
-    document.body.style.paddingTop = 50 + 'px';
-    document.body.style.paddingBottom = 50 + 'px';
+    document.body.style.height = 800 * heightRatio + 'px';
+    //document.body.style.margin = '50px 0 100px';
 } else {
-    widthRatio = 1;
+    widthRatio = width < 1080
+        ? widthRatio * 0.9
+        : 1;
     document.body.style.width = '450px';
-    document.body.style.paddingTop = 100 + 'px';
-    document.body.style.paddingBottom = 150 + 'px';
+    document.body.style.height = 800 * heightRatio + 'px';
 }
 document.body.style.transform = `scale(${widthRatio})`;
 
