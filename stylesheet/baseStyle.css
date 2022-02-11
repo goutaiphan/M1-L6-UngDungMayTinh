@@ -14,7 +14,7 @@ body {
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
-    justify-content: left;
+    justify-content: center;
     text-align: center;
     margin: auto;
 }
