@@ -4,10 +4,10 @@ import {input, clear, clearAll, result} from './functionScript.js';
 let width = Math.min(screen.width, screen.height);
 let height = Math.max(innerWidth, innerHeight);
 let widthRatio = width / 500;
-alert(screen.width + '/' + screen.height + ', ' + innerWidth + '/' + innerHeight);
+// alert(screen.width + '/' + screen.height + ', ' + innerWidth + '/' + innerHeight);
 
 if (navigator.userAgent.match(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i)) {
-    if (width <= 320) {
+    if (width < 360) {
         widthRatio = widthRatio * 1.2;
         document.body.style.width = width + 'px';
         document.body.style.height = height + 'px';
