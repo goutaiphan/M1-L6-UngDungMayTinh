@@ -4,36 +4,27 @@ import {input, clear, clearAll, result} from './functionScript.js';
 let width = Math.min(screen.width, screen.height);
 let height = Math.max(innerWidth, innerHeight);
 let widthRatio = width / 500;
-// alert(screen.width + '/' + screen.height + ', ' + innerWidth + '/' + innerHeight);
 
-if (navigator.userAgent.match(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i)) {
-    if (width < 360) {
-        widthRatio = widthRatio * 1.2;
-        document.body.style.width = width + 'px';
-        document.body.style.height = height + 'px';
-        document.body.style.paddingTop = 50 + 'px';
-        document.body.style.paddingBottom = '150px';
-    } else if (width < 450) {
-        widthRatio = widthRatio * 1.1;
-        document.body.style.width = width + 'px';
-        document.body.style.height = height + 'px';
-        document.body.style.paddingTop = 50 + 'px';
-        document.body.style.paddingBottom = '150px';
-    } else if (width < 768) {
-        document.body.style.width = 450 + 'px';
-        document.body.style.height = height * 80 / 100 + 'px';
-        document.body.style.paddingBottom = 50 * height / 658 + 'px';
-    } else if (width <= 992) {
-        widthRatio = widthRatio * 0.9;
-        document.body.style.width = 450 + 'px';
-        document.body.style.height = height * 75 / 100 + 'px';
-        document.body.style.paddingTop = 50 + 'px';
-    } else {
-        widthRatio = widthRatio * 0.9;
-        document.body.style.width = 450 + 'px';
-        document.body.style.height = height * 70 / 100 + 'px';
-        document.body.style.paddingTop = 150 + 'px';
-    }
+if (width < 450) {
+    widthRatio = width < 320
+        ? widthRatio * 1.2
+        : widthRatio * 1.1
+    document.body.style.width = width + 'px';
+    document.body.style.height = height + 'px';
+    document.body.style.paddingTop = '50px';
+    document.body.style.paddingBottom = '150px';
+} else if (width < 1000) {
+    widthRatio = widthRatio * 0.9;
+    document.body.style.width = 450 + 'px';
+    document.body.style.height = innerHeight + 'px';
+    document.body.style.paddingTop = 50 + 'px';
+    document.body.style.paddingBottom = '100px';
+} else if (width < 1080) {
+    widthRatio = widthRatio * 0.9;
+    document.body.style.width = 450 + 'px';
+    document.body.style.height = height * 70 / 100 + 'px';
+    document.body.style.paddingTop = 50 + 'px';
+    document.body.style.paddingBottom = 50 + 'px';
 } else {
     widthRatio = 1;
     document.body.style.width = '450px';
