@@ -11,14 +11,14 @@ if (navigator.userAgent.match(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobil
         widthRatio = widthRatio * 1.2;
         document.body.style.width = width + 'px';
         document.body.style.height = height + 'px';
-        // document.body.style.paddingTop = 50 * widthRatio + 'px';
-        // document.body.style.paddingBottom = '100px';
+        document.body.style.paddingTop = 50 + 'px';
+        document.body.style.paddingBottom = '150px';
     } else if (width < 450) {
         widthRatio = widthRatio * 1.1;
         document.body.style.width = width + 'px';
         document.body.style.height = height + 'px';
-        // document.body.style.paddingTop = 50 * widthRatio + 'px';
-        // document.body.style.paddingBottom = '100px';
+        document.body.style.paddingTop = 50 + 'px';
+        document.body.style.paddingBottom = '150px';
     } else if (width < 768) {
         document.body.style.width = 450 + 'px';
         document.body.style.height = height * 80 / 100 + 'px';
