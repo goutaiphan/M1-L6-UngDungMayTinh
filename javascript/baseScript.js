@@ -2,7 +2,7 @@ export {inputArea, resultArea};
 import {input, clear, clearAll, result} from './functionScript.js';
 
 let width = Math.min(screen.width, screen.height);
-let height = Math.max(innerWidth, innerHeight);
+let height = Math.max(screen.width, screen.height);
 let widthRatio = width / 450;
 let heightRatio = height / 874;
 alert(screen.width + '/' + screen.height);
