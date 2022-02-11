@@ -6,6 +6,7 @@ if (navigator.userAgent.match(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobil
     let height = Math.max(outerWidth, outerHeight);
     let widthRatio = width / 450;
     let heightRatio = height / 850;
+    alert(outerWidth + '/' + outerHeight);
 
     if (width < 450) {
         widthRatio = width < 360
