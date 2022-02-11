@@ -5,13 +5,12 @@ let width = Math.min(screen.width, screen.height);
 let height = Math.max(innerWidth, innerHeight);
 let widthRatio = width / 450;
 let heightRatio = height / 874;
-console.log(document.body.offsetWidth);
+alert(screen.width + '/' + screen.height);
 
-if (width < 360) {
-    widthRatio = widthRatio * 1.2;
-    document.body.style.width = width + 'px';
-    document.body.style.height = height + 'px';
-} else if (width < 450) {
+if (width < 450) {
+    widthRatio = width < 360
+        ? widthRatio * 1.2
+        : widthRatio
     document.body.style.width = width + 'px';
     document.body.style.height = height + 'px';
 } else {
