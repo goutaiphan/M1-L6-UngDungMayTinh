@@ -9,13 +9,11 @@ console.log(document.body.offsetWidth);
 
 if (width < 360) {
     widthRatio = widthRatio * 1.2;
-    document.body.style.paddingTop = 50 + 'px';
-    document.body.style.paddingBottom = 100 + 'px';
+    document.body.style.width = width + 'px';
+    document.body.style.height = height + 'px';
 } else if (width < 450) {
     document.body.style.width = width + 'px';
     document.body.style.height = height + 'px';
-    document.body.style.paddingTop = 50 + 'px';
-    document.body.style.paddingBottom = 100 + 'px';
 } else {
     widthRatio = width < 1080
         ? widthRatio * 0.9
