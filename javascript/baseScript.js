@@ -5,21 +5,22 @@ let width = Math.min(screen.width, screen.height);
 let height = Math.max(innerWidth, innerHeight);
 let widthRatio = width / 500;
 let heightRatio = height / 874;
-alert(innerWidth + '/' + innerHeight);
+console.log(heightRatio);
 
 if (width < 450) {
-    widthRatio = width < 320
+    widthRatio = width < 360
         ? widthRatio * 1.2
-        : widthRatio * 1.1
+        : widthRatio * 1
     document.body.style.width = width + 'px';
-    document.body.style.height = 800 * heightRatio + 'px';
-    //document.body.style.margin = '50px 0 100px';
+    document.body.style.height = height + 'px';
+    document.body.style.paddingTop = 50 + 'px';
+    document.body.style.paddingBottom = 100 + 'px';
 } else {
     widthRatio = width < 1080
         ? widthRatio * 0.9
         : 1;
     document.body.style.width = '450px';
-    document.body.style.height = 800 * heightRatio + 'px';
+    document.body.style.height = 750 * heightRatio + 'px';
 }
 document.body.style.transform = `scale(${widthRatio})`;
 
