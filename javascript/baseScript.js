@@ -7,21 +7,21 @@ let widthRatio = width / 500;
 console.log(screen.height);
 
 if (navigator.userAgent.match(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i)) {
-    if (screen.width <= 320) {
+    if (width <= 320) {
         widthRatio = widthRatio * 1.3;
         document.body.style.width = width + 'px';
         document.body.style.height = height + 'px';
         document.body.style.paddingBottom = 70 * screen.height / 658 + 'px';
-    } else if (screen.width < 450) {
+    } else if (width < 450) {
         widthRatio = widthRatio * 1.1;
         document.body.style.width = width + 'px';
         document.body.style.height = height + 'px';
         document.body.style.paddingBottom = 150 * screen.height / 658 + 'px';
-    } else if (screen.width < 768) {
+    } else if (width < 768) {
         document.body.style.width = 450 + 'px';
         document.body.style.height = screen.height * 80 / 100 + 'px';
         document.body.style.paddingBottom = 50 * screen.height / 658 + 'px';
-    } else if (screen.width <= 992) {
+    } else if (width <= 992) {
         widthRatio = widthRatio * 0.9;
         document.body.style.width = 450 + 'px';
         document.body.style.height = screen.height * 75 / 100 + 'px';
