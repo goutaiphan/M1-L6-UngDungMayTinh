@@ -15,7 +15,7 @@ if (navigator.userAgent.match(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobil
             : widthRatio
         document.body.style.width = width + 'px';
         document.body.style.height = height * 85 / 100 + 'px';
-        document.body.style.paddingBottom = 150 * heightRatio + 'px';
+        document.body.style.paddingBottom = 100 * heightRatio + 'px';
     } else {
         widthRatio = widthRatio * 0.85;
         document.body.style.width = '450px';
