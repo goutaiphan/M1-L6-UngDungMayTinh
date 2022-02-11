@@ -8,19 +8,17 @@ console.log(width + '/' + height);
 
 if (navigator.userAgent.match(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i)) {
     if (width <= 320) {
-        widthRatio = widthRatio * 1.3;
+        widthRatio = widthRatio * 1.2;
         document.body.style.width = width + 'px';
-        document.body.style.height = 'max-content';
-        document.body.style.paddingTop = '50px';
-        document.body.style.paddingBottom = '100px';
-        // document.body.style.paddingBottom = 70 * height / 658 + 'px';
+        document.body.style.height = height + 'px';
+        // document.body.style.paddingTop = 50 * widthRatio + 'px';
+        // document.body.style.paddingBottom = '100px';
     } else if (width < 450) {
         widthRatio = widthRatio * 1.1;
         document.body.style.width = width + 'px';
-        document.body.style.height = 'max-content';
-        document.body.style.paddingTop = '50px';
-        document.body.style.paddingBottom = '100px';
-        //document.body.style.paddingBottom = 150 * height / 658 + 'px';
+        document.body.style.height = height + 'px';
+        // document.body.style.paddingTop = 50 * widthRatio + 'px';
+        // document.body.style.paddingBottom = '100px';
     } else if (width < 768) {
         document.body.style.width = 450 + 'px';
         document.body.style.height = height * 80 / 100 + 'px';
