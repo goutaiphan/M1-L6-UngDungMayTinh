@@ -12,7 +12,7 @@ if (width < 450) {
         ? widthRatio * 1.2
         : widthRatio
     document.body.style.width = width + 'px';
-    document.body.style.height = height + outerHeight + 'px';
+    document.body.style.height = outerHeight + 'px';
 } else {
     widthRatio = width < 1080
         ? widthRatio * 0.9
