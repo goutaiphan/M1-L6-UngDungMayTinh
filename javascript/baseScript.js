@@ -3,14 +3,14 @@ import {input, clear, clearAll, result} from './functionScript.js';
 
 let width = Math.min(screen.width, screen.height);
 let height = Math.max(innerWidth, innerHeight);
-let widthRatio = width / 500;
+let widthRatio = width / 450;
 let heightRatio = height / 874;
-console.log(heightRatio);
+console.log(document.body.offsetWidth);
 
-if (width < 450) {
+if (width < 500) {
     widthRatio = width < 360
-        ? widthRatio * 1.3
-        : widthRatio * 1.2
+        ? widthRatio
+        : widthRatio
     document.body.style.width = width + 'px';
     document.body.style.height = height + 'px';
     document.body.style.paddingTop = 50 + 'px';
