@@ -2,7 +2,7 @@ export {inputArea, resultArea};
 import {input, clear, clearAll, result} from './functionScript.js';
 
 if (navigator.userAgent.match(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i)) {
-    let width = Math.min(outerWidth, outerHeight);
+    let width = Math.min(screen.width, screen.height);
     let height = Math.max(outerWidth, outerHeight);
     let widthRatio = width / 450;
     let heightRatio = height / 850;
