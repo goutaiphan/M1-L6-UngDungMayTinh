@@ -3,7 +3,6 @@
     box-sizing: border-box;
     border: none;
     outline: none;
-    white-space: nowrap;
     background-color: transparent;
     background-size: cover;
     background-repeat: no-repeat;
@@ -33,10 +32,18 @@ body {
 
 #boardArea {
     width: 96%;
-    height: 120px;
+    height: 140px;
+    padding: 5px 0 0;
     margin: 0 0 40px;
     border: 1px solid gray;
     border-radius: 3px;
+}
+
+#boardArea, #inputArea, #resultArea {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
 }
 
 #inputArea {
@@ -44,7 +51,7 @@ body {
     height: 40%;
     margin: auto;
     text-align: center;
-    font-size: 16px;
+    font-size: 18px;
 }
 
 hr {
@@ -58,7 +65,7 @@ hr {
     width: 90%;
     height: 60%;
     margin: auto;
-    line-height: 70px;
+    padding: 2px 0 0;
     font-family: 'TimesNewRoman', serif;
     font-size: 30px;
 }

@@ -45,7 +45,7 @@ for (let i = 0; i < inputArray.length; i++) {
         let button = document.createElement('td');
         row.appendChild(button);
         button.innerHTML = String(inputArray[i][j]);
-        if (button.innerHTML.match(/[0-9]/)) {
+        if (button.innerHTML.match(/\d/)) {
             button.id = 'buttonNumber';
         } else {
             button.id = 'buttonCalculus';
@@ -74,7 +74,7 @@ window.onkeydown = function (event) {
     inputArea.setCustomValidity('');
     event.preventDefault();
     switch (event.key) {
-        case String(event.key.match(/[0-9.,+\-*/%()^√]/)):
+        case String(event.key.match(/[\d.,+\-*/%()^√]/)):
             input(event.key);
             break;
         case 'Backspace':

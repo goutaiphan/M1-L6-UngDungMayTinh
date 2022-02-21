@@ -47,7 +47,7 @@ function result() {
 }
 
 function format(inputValue) {
-    let reMinus = inputValue.match(/(-)\1+/g);
+    let reMinus = inputValue.match(/(-)+/);
     if (reMinus !== null) {
         for (let i = 0; i < reMinus.length; i++) {
             inputValue = reMinus[i].length % 2 === 0
@@ -59,9 +59,9 @@ function format(inputValue) {
         .replaceAll('‰', '/1000')
         .replaceAll('√\(', 'Math.sqrt(')
         .replaceAll(',', '.')
-        .replace(/(\+)\1+/g, '+')
-        .replace(/(\*)\1+/g, '*')
-        .replace(/(\/)\1+/g, '/')
-        .replace(/(\.)\1+/g, '.');
+        .replace(/(\+)+/g, '+')
+        .replace(/(\*)+/g, '*')
+        .replace(/(\/)+/g, '/')
+        .replace(/(\.)+/g, '.');
 }
 
